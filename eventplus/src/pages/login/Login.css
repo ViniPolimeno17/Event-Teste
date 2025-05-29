@@ -1,0 +1,72 @@
+.main_login{
+    display: flex;
+    height: 100vh;
+
+}
+
+/* banner da esquerda */
+/* .banner{
+    background-color: #b51d44;
+    flex: 1;
+
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+} */
+
+/* parte da direita */
+.section_login{
+    flex: 1;
+    background-color: #b51d44;
+
+    /* centralizar o campo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_login{
+    color: #b4a9a9;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 200px;
+}
+
+.campo_input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.campos_login{
+    width: 100%;
+}
+.campo_input input{
+    height: 30px;
+    width: 356px;
+    padding: 0px 10px;
+    margin-top: 7px;
+    border: none;
+    outline: none;
+    /* border-radius: 7px; */
+    box-shadow: 0px 2px 0px 0px #2e2d2dbb;
+}
+.link_esqueci_senha a{ 
+    margin-left: 106px;
+    color: #b4a9a9;
+    /* text-decoration: none; */
+}
+
+@media screen and (max-width: 768px) {
+    .section_login{
+        display: none;
+    }
+    .form_login{
+        width: 100%;
+    }
+}

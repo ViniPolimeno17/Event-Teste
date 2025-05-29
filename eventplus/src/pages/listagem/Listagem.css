@@ -1,0 +1,50 @@
+footer{
+    position: fixed;
+    margin-left: 600px;
+}
+
+.listagemEventos
+{
+    flex-direction: column;
+    display: flex;
+    padding: 30px;
+}
+
+.titulo_cima{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.titulo_cima hr{
+    border: solid 2px #b51d44;
+    width: 100px;
+    margin-top: 10px;
+}
+.select{
+    margin: 10px;
+    width: 279px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+.item_listaEventos{
+    display: flex;
+    gap: 200px;
+    border-bottom: solid 2px #201849;
+}
+.item_listaEventos img{
+    margin-left: 100px;
+}
+.table_eventos{
+    display: flex;
+    gap: 250px;
+    border-bottom: solid 2px #B51D44;
+    margin-bottom: 30px;
+}
+
+.table_eventos th{
+    gap: 50px;
+}
