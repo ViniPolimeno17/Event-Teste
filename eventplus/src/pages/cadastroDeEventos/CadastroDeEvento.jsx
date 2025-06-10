@@ -57,7 +57,6 @@ const CadastrarEvento = () => {
             setListaEvento(resposta.data)
         } catch (error) {
             console.log(error);
-
         }
     }
 

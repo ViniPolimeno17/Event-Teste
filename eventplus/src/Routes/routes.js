@@ -19,6 +19,8 @@ const Rotas = () => {
                 <Route path="/CadastroTipoUsuario" element={<CadastroTipoUsuario/>}/>
                 
                 <Route path="/Listagem" element={<Listagem/>}/>
+
+                {/* <Route path="/Home" element={<Home/>}/> */}
             </Routes>
         </BrowserRouter>
     )
