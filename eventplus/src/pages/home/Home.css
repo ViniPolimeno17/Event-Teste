@@ -1,0 +1,16 @@
+.tela_vermelha{
+    width: 100%;
+}
+.titulo_eventos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 30px;
+}
+.titulo_eventos hr {
+    width: 150px;
+    border-top: 30px;
+    margin-bottom: 1px solid black;
+}

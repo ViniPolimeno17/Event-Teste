@@ -7,6 +7,7 @@ import { useState } from "react"
 import { userDecodeToken } from "../../auth/Auth"
 import secureLocalStorage from "react-secure-storage"
 import { Navigate, useNavigate } from 'react-router-dom'
+import { useAuth } from "../../contexts/AuthContexts"
 
 
 
@@ -14,7 +15,10 @@ const Login = () => {
 
         const [email, setEmail] = useState("");
         const [senha, setSenha] = useState("");
+        
         const navigate = useNavigate();
+
+        const {setUsuario} = useAuth();
 
         async function realizarAutenticacao(e) {
                 e.preventDefault();
@@ -33,6 +37,8 @@ const Login = () => {
                         if(token){
                             //token sera decodificado
                             const tokenDecodificado = userDecodeToken(token);
+
+                            setUsuario(tokenDecodificado);
 
                             secureLocalStorage.setItem("tokenLogin", JSON.stringify(tokenDecodificado));
 

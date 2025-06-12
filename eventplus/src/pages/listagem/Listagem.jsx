@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import Modal from "../../components/modal/Modal";
 import Swal from 'sweetalert2';
+import { useAuth } from "../../contexts/AuthContexts";
 
 const Listagem = () => {
 
@@ -15,8 +16,10 @@ const Listagem = () => {
     const [tipoModal, setTipoModal] = useState(""); //"descricaoEvento" ou "comentario"
     const [dadosModal, setDadosModal] = useState({}); // descrição, idEvento, etc.
     const [modalAberto, setModalAberto] = useState(false);
-    const [usuarioId, setUsuarioId] = useState("ff4a8025-8b24-4ed5-a7d5-e93004281868");
-    const [filtroData, setFiltroData] = useState([""])
+    // const [usuarioId, setUsuarioId] = useState("ff4a8025-8b24-4ed5-a7d5-e93004281868");
+    const [filtroData, setFiltroData] = useState(["todos"])
+
+    const {usuario} = useAuth();
 
 
         async function listarEventos() {
@@ -25,7 +28,7 @@ const Listagem = () => {
                const resposta = await api.get("Eventos");
                const todosOsEventos = resposta.data;
 
-                const respostaPresenca = await api.get("PresencasEventos/ListarMinhas/"+usuarioId)
+                const respostaPresenca = await api.get("PresencasEventos/ListarMinhas/" + usuario.idUsuario)
                 const minhasPresencas = respostaPresenca.data;
 
                 const eventosComPresencas = todosOsEventos.map((atualEvento) => {
@@ -47,6 +50,7 @@ const Listagem = () => {
 
         useEffect(() => {
             listarEventos();
+            // console.log(usuario);         
         },[])
 
         function abrirModal(tipo, dados){
@@ -78,7 +82,7 @@ const Listagem = () => {
                     Swal.fire('Confirmado', 'Sua presença foi confirmada.', 'success');
                 }else{
                     //cadastrar uma nova presença
-                    await api.post("PresencasEventos", { situacao: true, idUsuario: usuarioId, idEvento: idEvento });
+                    await api.post("PresencasEventos", { situacao: true, idUsuario: usuario.idUsuario, idEvento: idEvento });
                     Swal.fire('Confirmado!', 'Sua presença foi confirmada.' , 'success');
                 }
             } catch (error) {
